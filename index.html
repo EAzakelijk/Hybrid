@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0f10" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Hybrid" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Hybrid Athlete</title>
+</head>
+<body>
+  <div id="appShell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">HYBRID ATHLETE</div>
+        <h1 id="pageTitle">Vandaag</h1>
+      </div>
+      <button id="installBtn" class="pill hidden">Installeren</button>
+    </header>
+
+    <main>
+      <section id="view-home" class="view active"></section>
+      <section id="view-plan" class="view"></section>
+      <section id="view-workout" class="view"></section>
+      <section id="view-history" class="view"></section>
+      <section id="view-progress" class="view"></section>
+      <section id="view-settings" class="view"></section>
+    </main>
+
+    <nav class="bottomnav">
+      <button data-view="home" class="active">Vandaag</button>
+      <button data-view="plan">Plan</button>
+      <button data-view="history">Historie</button>
+      <button data-view="progress">Progressie</button>
+      <button data-view="settings">Meer</button>
+    </nav>
+  </div>
+
+  <div id="timerBar" class="timerbar hidden">
+    <div><small>RUST</small><strong id="timerText">01:30</strong></div>
+    <button id="timerMinus">-15s</button>
+    <button id="timerPlus">+15s</button>
+    <button id="timerStop">Stop</button>
+  </div>
+
+  <dialog id="readinessDialog">
+    <form method="dialog" class="dialog-card">
+      <div class="eyebrow">DAILY CHECK-IN</div>
+      <h2>Hoe voel je je vandaag?</h2>
+      <label>Slaap <span id="sleepVal">7</span>/10<input id="sleepScore" type="range" min="1" max="10" value="7"></label>
+      <label>Energie <span id="energyVal">7</span>/10<input id="energyScore" type="range" min="1" max="10" value="7"></label>
+      <label>Spierpijn <span id="sorenessVal">3</span>/10<input id="sorenessScore" type="range" min="1" max="10" value="3"></label>
+      <menu><button value="cancel" class="secondary">Annuleren</button><button id="saveReadiness" value="default" class="primary">Opslaan</button></menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
